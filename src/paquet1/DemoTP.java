@@ -5,11 +5,8 @@
  */
 package paquet1;
 
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -66,9 +63,9 @@ public class DemoTP {
         }
     }
 
-    public static void verifAge(int age) throws Exception {
+    public static void verifAge(int age) throws AgeException {
         if (age < 0) {
-            throw new Exception(); /// On génère ici l'exception
+            throw new AgeException(age); /// On génère ici l'exception
         }
     }
 
@@ -77,8 +74,9 @@ public class DemoTP {
         System.out.println("Quel âge as-tu ?");
         try {
             DemoTP.verifAge(sc.nextInt());
-        } catch (Exception ex) {
-            System.out.println("Erreur sur l'age, il doit être positif");
+        } catch (AgeException ex) {
+            System.out.println("Erreur sur l'age, " + ex.age 
+                    + " n'est pas un age possible");
         }
     }
 
