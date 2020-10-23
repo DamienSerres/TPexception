@@ -66,7 +66,23 @@ public class DemoTP {
         }
     }
 
+    public static void verifAge(int age) throws Exception {
+        if (age < 0) {
+            throw new Exception(); /// On génère ici l'exception
+        }
+    }
+
+    public static void testVerifAge() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Quel âge as-tu ?");
+        try {
+            DemoTP.verifAge(sc.nextInt());
+        } catch (Exception ex) {
+            System.out.println("Erreur sur l'age, il doit être positif");
+        }
+    }
+
     public static void main(String[] args) {
-        DemoTP.demoException();
+        DemoTP.testVerifAge();
     }
 }
