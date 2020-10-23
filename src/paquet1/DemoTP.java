@@ -14,6 +14,17 @@ import java.util.Scanner;
  */
 public class DemoTP {
 
+    public static void demoAssert() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Programme de division de 2 entiers : ");
+        System.out.print("Saisir la valeur du numérateur : ");
+        int num = sc.nextInt();
+        System.out.print("Saisir la valeur du dénominateur (!=0) : ");
+        int den = sc.nextInt();
+        assert den != 0 : "Le dénominateur doit être != de 0";
+        System.out.println("Quotient = " + num / den);
+    }
+
     public static int calculer(int n1, int n2, char operateur, CCodeErreur code) {
 
         if (operateur == '+') {
@@ -69,13 +80,13 @@ public class DemoTP {
         }
     }
 
-    public static void testVerifAge() {
+    public static void demoVerifAge() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Quel âge as-tu ?");
         try {
             DemoTP.verifAge(sc.nextInt());
         } catch (AgeException ex) {
-            System.out.println("Erreur sur l'age, " + ex.age 
+            System.out.println("Erreur sur l'age, " + ex.age
                     + " n'est pas un age possible");
         } catch (InputMismatchException ex) {
             System.out.println("Utilisez des chiffres svp.");
@@ -83,6 +94,6 @@ public class DemoTP {
     }
 
     public static void main(String[] args) {
-        DemoTP.testVerifAge();
+        DemoTP.demoVerifAge();
     }
 }

@@ -5,14 +5,17 @@
  */
 package calculatrice;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Damien
  */
 public class CCalculateur {
 
-    private String n1;
-    private String n2;
+    private float n1;
+    private float n2;
     private String codeErreur;
 
     public void additionner() {
@@ -27,23 +30,33 @@ public class CCalculateur {
         throw new UnsupportedOperationException("Il faut écrire la méthode");
     }
 
-    public void diviser() {
-        throw new UnsupportedOperationException("Il faut écrire la méthode");
+    public float diviser() throws DivisionParZeroException {
+        if (n2 == 0) {
+            throw new DivisionParZeroException();
+        }
+        return n1 / n2;
     }
 
-    public String getN1() {
+    public static float diviser(int n1, int n2) throws DivisionParZeroException {
+        if (n2 == 0) {
+            throw new DivisionParZeroException();
+        }
+        return n1 / n2;
+    }
+
+    public float getN1() {
         return n1;
     }
 
-    public void setN1(String n1) {
+    public void setN1(float n1) {
         this.n1 = n1;
     }
 
-    public String getN2() {
+    public float getN2() {
         return n2;
     }
 
-    public void setN2(String n2) {
+    public void setN2(float n2) {
         this.n2 = n2;
     }
 
@@ -55,4 +68,26 @@ public class CCalculateur {
         this.codeErreur = codeErreur;
     }
 
+    public static void main(String[] args) {
+//        try {
+//            System.out.println(CCalculateur.diviser(2, 1));
+//        } catch (DivisionParZeroException ex) {
+//            Logger.getLogger(CCalculateur.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        CCalculateur calc = new CCalculateur();
+//        calc.setN1(25);
+//        calc.setN2(0);
+//        try {
+//            System.out.println(calc.diviser());
+//        } catch (DivisionParZeroException ex) {
+//            //System.out.println("On ne peut pas diviser par 0");
+//            Logger.getLogger(CCalculateur.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        try {
+            int res = 2 / 0;
+        } catch (ArithmeticException ex) {
+            System.out.println("Arrêtz de diviser par 0 !");
+        }
+
+    }
 }
