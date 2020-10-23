@@ -77,6 +77,8 @@ public class DemoTP {
         } catch (AgeException ex) {
             System.out.println("Erreur sur l'age, " + ex.age 
                     + " n'est pas un age possible");
+        } catch (InputMismatchException ex) {
+            System.out.println("Utilisez des chiffres svp.");
         }
     }
 
