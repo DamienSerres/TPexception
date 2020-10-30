@@ -5,6 +5,8 @@
  */
 package calculatrice;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Damien
